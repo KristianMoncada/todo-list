@@ -15,7 +15,7 @@ public class Todo {
         return id;
     }
 
-    public boolean getIsBoolean() {
+    public boolean getIsCompleted() {
         return isCompleted;
     }
 
@@ -33,6 +33,11 @@ public class Todo {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    @Override
+    public String toString() {
+        return id + " - " + title + (isCompleted ? " (done)" : " (pending)");
     }
 
     
