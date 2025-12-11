@@ -1,6 +1,8 @@
 package services;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import models.Todo;
 
 public class TodoService {
@@ -15,7 +17,6 @@ public class TodoService {
 
     public List<Todo> readAllTodo() {
         if (todoList.isEmpty()) {
-            System.out.println("List is empty there are no tasks");
             return todoList;
         } else {
             return todoList;
@@ -28,7 +29,21 @@ public class TodoService {
                 return e;
             }
         }
-
         return null;
+    }
+
+    public Todo updateTodo(int id, String title, boolean isCompleted) {
+        for (Todo e: todoList) {
+            if (id == e.getId()) {
+                e.setTitle(title);;
+                e.setIsCompleted(isCompleted);
+                return e;
+            }
+        }
+        return null;
+    }
+
+    public boolean removeTodo(int id) {
+        return todoList.removeIf(e -> e.getId() == id);
     }
 }
