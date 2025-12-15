@@ -1,5 +1,5 @@
 package models;
-
+// What a todo is
 public class Todo {
     private int id;
     private boolean isCompleted;
